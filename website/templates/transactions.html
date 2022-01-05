@@ -1,0 +1,87 @@
+{% extends "layout.html" %} {% block title %}Transactions{% endblock %} {% block content
+    %}
+    <!-- <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"></div> -->
+    <div class="container d-flex h-100">
+        <div class="row justify-content-center align-self-center">
+            <div class="table-wrapper">
+            <table class="table table-light table-striped" id = "data">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Ticker</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Purchase Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                      <tr>
+                        <td>{{ transaction.id }}</td>
+                        <td>{{ transaction.asset_type }}</td>
+                        <td>{{ transaction.ticker }}</td>
+                        <td>{{ transaction.name }}</td>
+                        <td>{{ transaction.quantity }}</td>
+                        <td>{{ transaction.date_purchased}}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+            </table>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >New Transaction</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add Transaction</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Recipient:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                          <label for="message-text" class="col-form-label">Message:</label>
+                          <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block scripts %}
+    <script>
+        $(document).ready(function () {
+        $('#data').DataTable({
+            columns: [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null],
+        });
+        });
+    </script>
+    <script>
+        function openForm() {
+            document.getElementById("popupForm").style.display = "block";
+        }
+        function closeForm() {
+            document.getElementById("popupForm").style.display = "none";
+        }
+    </script>
+    {% endblock %}
+

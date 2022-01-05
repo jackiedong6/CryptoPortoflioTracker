@@ -1,0 +1,214 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: 275%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #0074E1;
+    font-weight: 900;
+    
+}
+
+.nav-item
+{
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black !important; 
+}
+
+nav{
+    background-color: #DCECFE;
+    background: linear-gradient(120deg, #DCECFE 0%, #F5E1EE 100%) no-repeat;
+}
+
+nav nav
+{
+    font-size: x-large;
+    
+}
+
+5
+
+
+html {
+    height: 100%;
+  }
+
+body { 
+    background-color: #DCECFE;
+    background: linear-gradient(120deg, #DCECFE 0%, #F5E1EE 100%) no-repeat;
+    height: 100%; 
+    background-repeat:no-repeat;
+    padding-top: 100; 
+    font-family: 'EB Garamond', serif;
+    background-attachment:fixed;
+}
+
+.full-page{
+     height: 100vh;       
+     width: 100vw; 
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.container{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* Wrapper for table in transactions page */
+.table-wrapper{
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    font-family: 'EB Garamond', serif;
+}
+/* Wrapper for signup and login form */
+
+.wrapper{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.form-wrapper{
+    position: relative; 
+    max-width: 100%; 
+    justify-content: center; 
+    position: absolute; 
+}
+
+.wrapper h2{
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+.wrapper h2::before{
+    content: '';
+    align-items: center; 
+    justify-content: center; 
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    border-radius: 12px;
+    background: #4070f4;
+}
+.wrapper form{
+    margin-top: 30px;
+}
+.wrapper form .input-box{
+    height: 52px;
+    margin: 18px 0;
+}
+
+form .input-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 15px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.input-box input:focus,
+.input-box input:valid{
+    border-color: #4070f4;
+}
+
+form .policy{
+    display: flex;
+    align-items: center;
+}
+
+form h3{
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.input-box.button input{
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+    background: #4070f4;
+    cursor: pointer;
+}
+
+.input-box.button input:hover{
+    background: #0e4bf1;
+}
+
+form .text h3{
+    color: #333;
+    width: 100%;
+    text-align: center;
+}
+
+form .text h3 a{
+    color: #4070f4;
+    text-decoration: none;
+}
+
+form .text h3 a:hover{
+    text-decoration: underline;
+}
+
+.pagination{
+    float: right; 
+}
+
+.dataTables_filter{
+    float: right; 
+}
+
+.dataTables_info { 
+    display: none; 
+}
+
+
+
+ 
+.table-striped tbody tr:nth-child td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+ 
+.table-striped tbody tr:nth-child  th {
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+ 
