@@ -6,17 +6,9 @@ nav .navbar-brand
     font-family: 'Open Sans', sans-serif;
 }
 
-/* Colors for brand */
-nav .navbar-brand .blue
-{
-    color: #0074E1;
-    font-weight: 900;
-    
-}
-
 .nav-item
 {
-    font-size: 100%;
+    font-size: 110%;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
@@ -273,4 +265,8 @@ table.dataTable tbody tr.sell:hover {
     background-color: #8064A2 !important;
  }
  
- 
+ .message{
+     color:blue; 
+     font-family: 'Open Sans', sans-serif;
+     font-weight: bold;
+ }

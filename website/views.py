@@ -111,8 +111,10 @@ def home():
         )
         bargraph_div_string = pyo.offline.plot(bar_fig, include_plotlyjs=True, output_type='div')
         bargraph = Markup(bargraph_div_string)
-        return render_template("index.html", user = current_user, tickers = Ticker_List, chart = chart, piechart = pie_chart, bargraph = bargraph)
-    return render_template("index.html", user = current_user, tickers = Ticker_List, chart = chart)
+        bool_data = True
+        return render_template("index.html", bool = bool_data, user = current_user, tickers = Ticker_List, chart = chart, piechart = pie_chart, bargraph = bargraph)
+    bool_data = False 
+    return render_template("index.html", bool = bool_data, user = current_user, tickers = Ticker_List)
 
 
 @views.route('/transactions', methods = ['GET', 'POST'])
@@ -136,13 +138,22 @@ def transactions():
         if transaction_type == "BUY":
             new_transaction = Asset(ticker = ticker, quantity = quantity, 
                                     date_purchased = date_purchased, user_id=current_user.id, transaction_type = transaction_type, total_spent = None)
+            db.session.add(new_transaction)
+            db.session.commit()
+            return redirect(url_for('views.transactions'))
         if transaction_type == "SELL":
-            quantity = quantity * -1 
-            new_transaction = Asset(ticker = ticker, quantity = quantity, 
-                                    date_purchased = date_purchased, user_id=current_user.id, transaction_type = transaction_type, total_spent = None)
-        db.session.add(new_transaction)
-        db.session.commit()
-        return redirect(url_for('views.transactions'))
+            quantity_query = db.session.query(func.sum(Asset.quantity)).filter(Asset.ticker==ticker)
+            quantity_query = [value for value, in quantity_query]
+            if quantity <= (float)(quantity_query[0]):
+                quantity = quantity * -1 
+                new_transaction = Asset(ticker = ticker, quantity = quantity, 
+                                        date_purchased = date_purchased, user_id=current_user.id, transaction_type = transaction_type, total_spent = None)
+                db.session.add(new_transaction)
+                db.session.commit()
+                return redirect(url_for('views.transactions'))
+            else:      
+                 flash(f'You do not have enough {ticker}', category='error')
+                 return redirect(url_for('views.transactions'))
     else:
         transactions = Asset.query.filter_by(user_id=current_user.id)
         return render_template('transactions.html', title='Basic Table', 
