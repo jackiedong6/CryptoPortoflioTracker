@@ -1,5 +1,17 @@
 {% extends "layout.html" %} {% block title %}Home{% endblock %} {% block content
     %}
-    <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"></div>
-    {{ chart }}
+    <div class="row">
+        <div class="col-xs-6">
+            {{chart}}
+        </div>
+        <div class="col-xs-6">
+            {{piechart}}
+        </div>
+    </div>
+    <div class = "row">
+        <div class="col-xs-6">
+            {{bargraph}}
+        </div>
+    </div>
+    
     {% endblock %}

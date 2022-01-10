@@ -4,19 +4,21 @@ from sqlalchemy.sql import func
 
 class Asset(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    asset_type = db.Column(db.String(100))
-    ticker = db.Column(db.String(10000))
-    quantity = db.Column(db.Integer)
+    # asset_type= db.Column(db.String(100))
+    ticker = db.Column(db.String(100))
+    quantity = db.Column(db.Float)
     date_purchased = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    def to_dict(self):
-        return {
-            'name': self.name,
-            'asset_type': self.asset_type,
-            'ticker': self.ticker, 
-            'quantity': self.quantity,
-            'date_purchased': self.date_purchased
-        }
+    transaction_type = db.Column(db.String(4))
+    total_spent = db.Column(db.Float)
+    # def to_dict(self):
+    #     return {
+    #         'name': self.name,
+    #         'asset_type': self.asset_type,
+    #         'ticker': self.ticker, 
+    #         'quantity': self.quantity,
+    #         'date_purchased': self.date_purchased
+    #     }
 
 
 

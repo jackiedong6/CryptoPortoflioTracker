@@ -1,3 +1,4 @@
+/* CSS for layout and navbar across pages */
 nav .navbar-brand
 {
     /* size for brand */
@@ -35,9 +36,6 @@ nav nav
     
 }
 
-5
-
-
 html {
     height: 100%;
   }
@@ -61,22 +59,13 @@ body {
 
 .container{
     padding-top: 20px;
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: center;
 
 }
-/* Wrapper for table in transactions page */
-.table-wrapper{
-    position: relative;
-    max-width: 100%;
-    width: 100%;
-    background: #fff;
-    padding: 34px;
-    border-radius: 6px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-    font-family: 'EB Garamond', serif;
-}
+
+
 /* Wrapper for signup and login form */
 
 .wrapper{
@@ -89,6 +78,7 @@ body {
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
+/* CSS for Login and Signup form */
 .form-wrapper{
     position: relative; 
     max-width: 100%; 
@@ -139,10 +129,7 @@ form .input-box input{
     border-color: #4070f4;
 }
 
-form .policy{
-    display: flex;
-    align-items: center;
-}
+
 
 form h3{
     color: #707070;
@@ -178,6 +165,9 @@ form .text h3 a:hover{
     text-decoration: underline;
 }
 
+
+
+/* CSS for the transactions web page  */
 .pagination{
     float: right; 
 }
@@ -190,9 +180,19 @@ form .text h3 a:hover{
     display: none; 
 }
 
+/* Wrapper for table in transactions page */
+.table-wrapper{
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    background: #fff;
+    padding: 34px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    font-family: 'EB Garamond', serif;
+}
 
 
- 
 .table-striped tbody tr:nth-child td{
     padding: 15px;
     text-align: left;
@@ -209,6 +209,68 @@ form .text h3 a:hover{
     font-weight: 500;
     font-size: 12px;
     color: #fff;
-    text-transform: uppercase;
 }
+
+
+
+.btn-group, .btn-group-vertical {
+    width: 100%; 
+}
+
+.modal-body .row{
+    justify-content: center; 
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem; 
+    padding-right: 0.5rem !important; 
+    padding-left: 0.5rem !important; 
+ }
+
+ .input-group{
+     width: 100%; 
+ }
+
+
+ .btn-group>.btn-group:not(:first-child)>.btn, .btn-group>.btn:not(:first-child){
+    border-radius: 0;
+ }
+ 
+ .dataTable > thead > tr > th[class*="sort"]:before,
+ .dataTable > thead > tr > th[class*="sort"]:after {
+     content: "" !important;
+ }
+
+
+table.dataTable tbody tr.buy:hover {
+   background-color:#98FB98 !important;
+}
+
+table.dataTable tbody tr.sell:hover {
+    background-color: #FAA0A0 !important;
+  }
+
+.form-row {
+    display: flex;
+}
+  
+  .form-group {
+    padding: 5px;
+    width: 50%;
+}
+  
+  .form-group input {
+    width: 100%;
+}
+
+ .modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding-top:0rem !important; 
+    padding-bottom: 0rem !important; 
+    margin-top: 1rem;
+ }
+ 
+.active{
+    background-color: #8064A2 !important;
+ }
+ 
  

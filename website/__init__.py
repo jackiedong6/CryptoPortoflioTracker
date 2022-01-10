@@ -2,6 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+from sqlalchemy import distinct, func
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 db = SQLAlchemy()
 DB_NAME = "database.db"

@@ -11,10 +11,9 @@ Focus to create a web application that allows users to chart their asset perform
 
 
 
-PORTFOLIO TRACKER LOGIC
--> Say we bought X on 0/1/12
-    -> Chart the price movement using price x quantity for each date
--> Now we bought Y on 0/1/13
-    -> Now there is a new segment in the graph, price movement is calculated by y * its price per date + x + its price per date 
--> Three variables
-    ->New price movement is old + 
+TO DO
+-> Statistics 
+IDEAS
+- Include something about average cost of each asset you hold
+- Include somethign about overall profit loss and profit loss of each asset
+    -  Have a bar chart with each profit loss negative values are red positive green, next to it have the total amount of profit loss
