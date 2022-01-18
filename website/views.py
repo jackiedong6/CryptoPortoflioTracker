@@ -126,7 +126,7 @@ def home():
             font_family="Courier New",
             font_color="blue",
             title_font_color="blue",
-            title_text="Asset Breakdown",
+            title_text="Asset Distribution",
             title_x=0.5,
             title_y=0.9,
             plot_bgcolor="rgba(0, 0, 0, 0)",
@@ -164,14 +164,29 @@ def home():
         )
         bargraph = Markup(bargraph_div_string)
         print(Ticker_df)
-        fig = go.Figure(
+        table_fig = go.Figure(
             data=[
                 go.Table(
-                    header=dict(values=Ticker_df.index),
-                    cells=dict(values=Ticker_df["averageCost"]),
+                    header=dict(values=["Ticker", "Average Cost"]),
+                    cells=dict(values=[Ticker_df.index, Ticker_df["averageCost"]]),
                 )
             ]
         )
+        table_fig.update_layout(
+            font_family="Courier New",
+            font_color="blue",
+            title_font_color="blue",
+            title_text="Average Cost",
+            title_x=0.5,
+            title_y=0.9,
+            plot_bgcolor="rgba(0, 0, 0, 0)",
+            paper_bgcolor="rgba(0, 0, 0, 0)",
+        )
+        table_div_string = pyo.offline.plot(
+            table_fig, include_plotlyjs=True, output_type="div"
+        )
+        table = Markup(table_div_string)
+
         bool_data = True
         return render_template(
             "index.html",
@@ -181,6 +196,7 @@ def home():
             chart=chart,
             piechart=pie_chart,
             bargraph=bargraph,
+            table=table,
         )
     bool_data = False
     return render_template(
