@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
-ENV = 'dev'
+ENV = 'prod'
 
 def create_app():
     app = Flask(__name__)
