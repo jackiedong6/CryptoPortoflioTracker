@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
-ENV = 'prod'
+ENV = 'dev'
 
 def create_app():
     app = Flask(__name__)
@@ -17,7 +17,9 @@ def create_app():
         app.config["SECRET_KEY"] = "hjshjhdjah kjshkjdhjs"
         app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
     else:
-         app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://tabpotcraugjre:0af33bb836951750c066cb2595c365520ad2632d50e6263ad72614847bcc09f7@ec2-3-227-15-75.compute-1.amazonaws.com:5432/d9fegdaepi9bn0"
+         app.config["SECRET_KEY"] = "hjshjhdjah kjshkjdhjs"
+         app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://tabpotcraugjre:0af33bb836951750c066cb2595c365520ad2632d50e6263ad72614847bcc09f7@ec2-3-227-15-75.compute-1.amazonaws.com:5432/d9fegdaepi9bn0"
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
     db.init_app(app)
 
     from .views import views
