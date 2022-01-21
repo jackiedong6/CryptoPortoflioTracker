@@ -60,7 +60,7 @@ def home():
         ticker_symbol += "/USD"
         ticker_time = transaction.date_purchased
         ticker_quantity = transaction.quantity
-        Ticker_df = Ticker_Data['LRC/USD']
+        Ticker_df = Ticker_Data[ticker_symbol]
         data = Ticker_df[Ticker_df["date"] >= ticker_time] 
         for i in data["close"]:
             i = float(i)
@@ -173,7 +173,9 @@ def home():
         table_fig = go.Figure(
             data=[
                 go.Table(
-                    header=dict(values=["Ticker", "Average Cost"]),
+                    header=dict(values=["Ticker", "Average Cost"],
+                                fill_color='blue',
+                                font=dict(color='white', size=12)),
                     cells=dict(values=[Ticker_df.index, Ticker_df["averageCost"]]),
                 )
             ]
