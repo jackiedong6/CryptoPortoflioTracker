@@ -51,13 +51,20 @@ def home():
     Ticker_List = db.session.query(Asset.ticker).distinct()
     Ticker_List = [value for value, in Ticker_List]
     Ticker_Dict = {}
+    Ticker_Data = {}
+    for unique_ticker in Ticker_List:
+        unique_ticker += "/USD"
+        Ticker_Data[unique_ticker] = fetch_daily_data(unique_ticker)
     for transaction in transactions:
         ticker_symbol = transaction.ticker
         ticker_symbol += "/USD"
         ticker_time = transaction.date_purchased
         ticker_quantity = transaction.quantity
-        data = fetch_daily_data(ticker_symbol, ticker_time, ticker_quantity)
-        # print(data)
+        Ticker_df = Ticker_Data['LRC/USD']
+        data = Ticker_df[Ticker_df["date"] >= ticker_time] 
+        for i in data["close"]:
+            i = float(i)
+        data["Total"] = data["close"] * (float)(ticker_quantity)
         data1 = np.array(data.iloc[-1]["close"])
         total_spent = ticker_quantity * data1
         db.session.query(Asset).filter(Asset.id == transaction.id).update(
@@ -163,7 +170,6 @@ def home():
             bar_fig, include_plotlyjs=True, output_type="div"
         )
         bargraph = Markup(bargraph_div_string)
-        print(Ticker_df)
         table_fig = go.Figure(
             data=[
                 go.Table(
@@ -266,8 +272,7 @@ def transactions():
             max_time=max_time,
         )
 
-
-def fetch_daily_data(symbol, start_date, quantity):
+def fetch_daily_data(symbol):
     pair_split = symbol.split("/")  # symbol must be in format XXX/XXX ie. BTC/EUR
     symbol = pair_split[0] + "-" + pair_split[1]
     url = f"https://api.pro.coinbase.com/products/{symbol}/candles?granularity=86400"
@@ -287,13 +292,11 @@ def fetch_daily_data(symbol, start_date, quantity):
         )  # multiply the BTC volume by closing price to approximate fiat volume
         # data['date'] = pd.to_datetime(data['date'],format = "%Y-%m-%d")
         data["date"] = pd.to_datetime(data["date"], format="%Y%m%d%H%M%S")
-        data = data[data["date"] >= start_date]
         if data is None:
             print("Did not return any data from Coinbase for this symbol")
         else:
             for i in data["close"]:
                 i = float(i)
-            data["Total"] = data["close"] * (float)(quantity)
             return data
 
     else:
