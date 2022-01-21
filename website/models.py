@@ -12,15 +12,6 @@ class Asset(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     transaction_type = db.Column(db.String(4))
     total_spent = db.Column(db.Float)
-    # def to_dict(self):
-    #     return {
-    #         'name': self.name,
-    #         'asset_type': self.asset_type,
-    #         'ticker': self.ticker,
-    #         'quantity': self.quantity,
-    #         'date_purchased': self.date_purchased
-    #     }
-
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
