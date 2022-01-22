@@ -1,3 +1,4 @@
+import re
 from flask import (
     Blueprint,
     render_template,
@@ -274,6 +275,11 @@ def transactions():
             max_time=max_time,
         )
 
+@views.route("/news", methods=["GET", "POST"])
+@login_required
+def news():
+    return render_template("news.html", user = current_user)
+
 def fetch_daily_data(symbol):
     pair_split = symbol.split("/")  # symbol must be in format XXX/XXX ie. BTC/EUR
     symbol = pair_split[0] + "-" + pair_split[1]
@@ -304,3 +310,4 @@ def fetch_daily_data(symbol):
     else:
         print("Did not receieve OK response from Coinbase API")
         return None
+

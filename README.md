@@ -1,6 +1,11 @@
 <h1 align="center">Crypto Portfolio Tracker</h1>
 <h3 align="center">Web Application made with Flask and Python</h3>
-https://crypto-portfolio-application.herokuapp.com/sign-up
+
+<p align ="left">Sources</p>
+
+- Coinbase API for daily data
+- CryptoPanic for News Feed 
+
 <p align ="left">Overview</p>
 
 - Built a website using python and flask backend and html and css frontend 
@@ -27,8 +32,10 @@ https://crypto-portfolio-application.herokuapp.com/sign-up
 - Dashboard displaying your portfolio standings over time dynamically based on Coinbase API
 - Piechart showing portfolio divisions
 - Bargraph showing profits and losses of each asset held in your portfolio 
+- Table showing a variety of portfolio analytics
 ![Screenshot](3.png)
-
+- News feed page that pulls trending news from cryptopanic.com 
+![Screenshot](4.png)
 <p align = "left"> Major Difficulties</p>
 
 - Finding the right data to provide a historical reference of pricing 
@@ -39,12 +46,10 @@ https://crypto-portfolio-application.herokuapp.com/sign-up
 <p align ="left">Future Considerations</p>
 
 - Finish the watchlist implementation
-- Save data into a CSV so that if there are lots of transactions/pull requests from Coinbase API it doesn't lag, also append only new data for daily pricing as Coinbase API only does yearly 
-    -- EDIT FINISHED. 
 - Add more statistics on the dashboard page including total profit/loss, average price purchased of each asset
 - Add different asset groups ie, equities, realesate
-- Deploy live, tried to do with Heroku but very buggy 
-    -- EDIT: In testing but seems to work https://crypto-portfolio-application.herokuapp.com/sign-up.
+- Deploy live with Heroku,
+    -> Need to migrate database over to posgresql 
 - Better user interface 
 - Learn how to use Dash for a project like this 
 - More buttons in the transactions modal group 
