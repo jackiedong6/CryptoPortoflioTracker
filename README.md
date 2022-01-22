@@ -1,6 +1,6 @@
 <h1 align="center">Crypto Portfolio Tracker</h1>
 <h3 align="center">Web Application made with Flask and Python</h3>
-
+https://crypto-portfolio-application.herokuapp.com/sign-up
 <p align ="left">Overview</p>
 
 - Built a website using python and flask backend and html and css frontend 
@@ -40,9 +40,11 @@
 
 - Finish the watchlist implementation
 - Save data into a CSV so that if there are lots of transactions/pull requests from Coinbase API it doesn't lag, also append only new data for daily pricing as Coinbase API only does yearly 
+    -- EDIT FINISHED. 
 - Add more statistics on the dashboard page including total profit/loss, average price purchased of each asset
 - Add different asset groups ie, equities, realesate
 - Deploy live, tried to do with Heroku but very buggy 
+    -- EDIT: In testing but seems to work https://crypto-portfolio-application.herokuapp.com/sign-up.
 - Better user interface 
 - Learn how to use Dash for a project like this 
 - More buttons in the transactions modal group 
